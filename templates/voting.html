@@ -1,0 +1,93 @@
+<!-- templates/vote.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Voting container */
+        .vote-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            border-top: 5px solid #FF9933; /* Saffron color */
+            border-bottom: 5px solid #138808; /* Green color */
+        }
+
+        h2 {
+            color: #138808; /* Green color */
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Submit button styling */
+        button {
+            background-color: #FF9933; /* Saffron color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #e68a00; /* Darker saffron on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="vote-container">
+        <h2>Vote for Your Favorite Candidate</h2>
+        <form method="POST" action="/vote">
+            {% for candidate in candidates %}
+                <label>
+                    <input type="radio" name="candidate" value="{{ candidate }}" required> {{ candidate }}
+                </label>
+            {% endfor %}
+            <button type="submit">Submit Vote</button>
+        </form>
+    </div>
+</body>
+</html>

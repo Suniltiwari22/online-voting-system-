@@ -1,0 +1,121 @@
+<!-- templates/signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Sign-up container */
+        .signup-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            border-top: 5px solid #FF9933; /* Saffron color */
+            border-bottom: 5px solid #138808; /* Green color */
+        }
+
+        h2 {
+            color: #138808; /* Green color */
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        button {
+            background-color: #FF9933; /* Saffron color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e68a00; /* Darker saffron on hover */
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+
+        /* Link styling */
+        .signin-link {
+            margin-top: 15px;
+            display: block;
+            color: #138808; /* Green color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signin-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        .footer {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="/signup">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="aadhar" placeholder="Aadhar Number" required>
+            <input type="text" name="pan" placeholder="PAN Number" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="phone" placeholder="Phone" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <a href="/signin" class="signin-link">Already have an account? Sign in here</a>
+        <div class="footer">
+            <p>&copy; 2024 online Voting Machine. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

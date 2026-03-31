@@ -1,0 +1,152 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian online Voting System </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        /* Banner styling */
+        .banner {
+            background-image: url('https://th.bing.com/th/id/R.607b9f69862d76af04b474113c0c7ff5?rik=lfnOsbv7mhDNbQ&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2fb%2fbc%2fFlag_of_India.png&ehk=Pk5lH0C%2fhstFahWfb15vLjtrJb3DslIU4%2fAQneo9IIM%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            color: #FF9933; /* Saffron color for heading */
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #138808; /* Green color */
+            border: none;
+            font-size: 18px;
+        }
+
+        .btn-third {
+            background-color: #f70f0f; /* Green color */
+            border: none;
+            font-size: 18px;
+        }
+
+        .btn-secondary {
+            background-color: #FF9933; /* Saffron color */
+            border: none;
+            font-size: 18px;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            opacity: 0.8;
+        }
+
+        /* Info section styling */
+        .info-section {
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .info-section h2 {
+            color: #138808; /* Green color for heading */
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+
+        .card-header {
+            background-color: #FF9933; /* Saffron color */
+            color: white;
+            font-weight: bold;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            background-color: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <div class="banner">
+        <h1>Welcome to the online Voting Machine</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container text-center">
+        <a href="{{ url_for('signup') }}" class="btn btn-primary mt-3 mr-2">Sign Up</a>
+        <a href="{{ url_for('admin') }}" class="btn btn-third mt-3 mr-2">Admin</a>
+        <a href="{{ url_for('signin') }}" class="btn btn-secondary mt-3 ml-2">Sign In</a>
+    </div>
+
+    <!-- Information Section -->
+    <div class="info-section">
+        <h2>About the online Voting System</h2>
+        <p>Secure, reliable, and transparent voting system for all Indian citizens. Your vote matters, and we make sure it counts.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Why Vote?
+                    </div>
+                    <div class="card-body">
+                        <p>Voting is your fundamental right and a crucial part of democracy. Make your voice heard!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        How It Works
+                    </div>
+                    <div class="card-body">
+                        <p>Sign up, sign in, and cast your vote for the political party of your choice. It’s that simple!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Stay Informed
+                    </div>
+                    <div class="card-body">
+                        <p>Get updates on the latest election news, results, and voting tips. Stay engaged and empowered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 online Voting System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

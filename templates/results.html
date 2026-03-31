@@ -1,0 +1,118 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Results</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container styling */
+        .results-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            border-top: 5px solid #FF9933; /* Saffron color */
+            border-bottom: 5px solid #138808; /* Green color */
+        }
+
+        h2 {
+            color: #FF9933; /* Saffron color for heading */
+            margin-bottom: 20px;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #138808; /* Green color */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Button styling */
+        .logout-btn {
+            background-color: #FF9933; /* Saffron color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #e68a00; /* Darker saffron on hover */
+        }
+
+        /* Footer styling */
+        .footer {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <h2>Voting Results</h2>
+        <p>Total Votes: {{ total_votes }}</p>
+        <table>
+            <tr>
+                <th>Party</th>
+                <th>Votes</th>
+                <th>Percentage</th>
+            </tr>
+            {% for party, count, percentage in votes %}
+            <tr>
+                <td>{{ party }}</td>
+                <td>{{ count }}</td>
+                <td>{{ percentage }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/logout" class="logout-btn">Logout</a>
+        <div class="footer">
+            <p>&copy; 2024 Voting Machine. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
